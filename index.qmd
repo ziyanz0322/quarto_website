@@ -222,7 +222,7 @@ At CNOOC Finance, I built a fraud/AML detection system, automated compliance pro
 <div class="exp-card edu">
   <p class="role">M.S. in Financial Analysis</p>
   <p class="company">University of New South Wales - Sydney, Australia</p>
-  <p class="period">July 2016 – Jun 2017 (Expected)</p>
+  <p class="period">July 2016 – Jun 2017</p>
   <p class="details">
     Coursework: Business Risk Management, Applied Portfolio Management and Modelling, International Financial Statement Analysis, Business Analysis and Valuation, Capital Budgeting and Financial Decisions.
   </p>
