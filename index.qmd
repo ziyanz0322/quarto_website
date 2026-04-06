@@ -158,18 +158,12 @@ body {
   color: var(--mint);
 }
 
-/* Hide all stray Quarto-generated hr / border lines */
-hr,
-.about-entity hr,
-#about-block hr,
-.quarto-about-trestles .about-entity,
-.quarto-about-trestles .about-contents {
-  border: none !important;
-  border-top: none !important;
-  border-bottom: none !important;
-}
-hr {
+#about-block::after,
+#about-block::before,
+.about-contents::before,
+.about-contents::after {
   display: none !important;
+  border: none !important;
 }
 </style>
 
@@ -183,7 +177,6 @@ At CNOOC Finance, I built a fraud/AML detection system, automated compliance pro
 :::
 
 
-## {.section-title}
 :::{}
 <div class="section-title">💼 Work Experience</div>
 
@@ -213,7 +206,7 @@ At CNOOC Finance, I built a fraud/AML detection system, automated compliance pro
 <div class="exp-card edu">
   <p class="role">M.S. in Business Analytics</p>
   <p class="company">University of California, San Diego — Rady School of Management</p>
-  <p class="period">Sep 2024 – Jun 2026 (Expected)</p>
+  <p class="period">Sep 2024 – Dec 2026 (Expected)</p>
   <p class="details">
     Coursework: Machine Learning, Fraud Analytics, Data Mining, Statistical Modeling, Project Management. Capstone project with Experian on fraud portfolio analytics. Built AI-powered applications including a pet diet recommendation app and wine rating prediction system.
   </p>

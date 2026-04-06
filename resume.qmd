@@ -2,4 +2,4 @@
 title: "My Resume"
 ---
 
-{{< pdf files/resume.pdf width=120% height=800 >}}
+{{< pdf files/resume.pdf width=120% height=900 >}}
