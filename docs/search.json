@@ -1,0 +1,65 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Ziyan (Freya) Zheng",
+    "section": "",
+    "text": "Email\n  \n  \n    \n     LinkedIn\n  \n  \n    \n     GitHub\n  \n\n  \n  \nAs a data analyst with over six years in financial services, I specialize in risk analytics, fraud detection, and compliance systems, leveraging my expertise in machine learning and artificial intelligence. Currently pursuing a Master’s in Business Analytics at UC San Diego, I focus on integrating advanced data solutions with actionable insights to address complex industry challenges.\nAt CNOOC Finance, I built a fraud/AML detection system, automated compliance processes, and developed analytics infrastructure for a multibillion-dollar portfolio. My technical skills include Python, SQL, NLP, and Tableau, which I utilize to create predictive models and data pipelines. I am motivated by opportunities to enhance trust and safety within fintech and financial services."
+  },
+  {
+    "objectID": "resume.html",
+    "href": "resume.html",
+    "title": "My Resume",
+    "section": "",
+    "text": "Download PDF file."
+  },
+  {
+    "objectID": "projects.html",
+    "href": "projects.html",
+    "title": "My Projects",
+    "section": "",
+    "text": "Analysis of Cars\n\n\n\n\n\n\nYour Name\n\n\nApr 5, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "projects/project1/index.html",
+    "href": "projects/project1/index.html",
+    "title": "Analysis of Cars",
+    "section": "",
+    "text": "Let’s investigate the relationship between fuel efficiency (mpg) and engine displacement (disp) from the mtcars dataset.\n\n\nHere is a plot:\n\nimport pandas as pd\nimport matplotlib.pyplot as plt\nfrom sklearn.datasets import fetch_openml\n\nmtcars = pd.read_csv(\"https://gist.githubusercontent.com/seankross/a412dfbd88b3db70b74b/raw/5f23f993cd87c283ce766e7ac6b329ee7cc2e1d1/mtcars.csv\")\n\ncorr = mtcars[\"mpg\"].corr(mtcars[\"disp\"])\nprint(f\"Correlation between mpg and disp: {corr:.2f}\")\n\nplt.figure()\nplt.scatter(mtcars[\"mpg\"], mtcars[\"disp\"], color=\"dodgerblue\", s=40)\nplt.xlabel(\"mpg\")\nplt.ylabel(\"disp\")\nplt.tight_layout()\nplt.show()\n\nCorrelation between mpg and disp: -0.85"
+  },
+  {
+    "objectID": "projects/project1/index.html#sub-header",
+    "href": "projects/project1/index.html#sub-header",
+    "title": "Analysis of Cars",
+    "section": "",
+    "text": "Here is a plot:\n\nimport pandas as pd\nimport matplotlib.pyplot as plt\nfrom sklearn.datasets import fetch_openml\n\nmtcars = pd.read_csv(\"https://gist.githubusercontent.com/seankross/a412dfbd88b3db70b74b/raw/5f23f993cd87c283ce766e7ac6b329ee7cc2e1d1/mtcars.csv\")\n\ncorr = mtcars[\"mpg\"].corr(mtcars[\"disp\"])\nprint(f\"Correlation between mpg and disp: {corr:.2f}\")\n\nplt.figure()\nplt.scatter(mtcars[\"mpg\"], mtcars[\"disp\"], color=\"dodgerblue\", s=40)\nplt.xlabel(\"mpg\")\nplt.ylabel(\"disp\")\nplt.tight_layout()\nplt.show()\n\nCorrelation between mpg and disp: -0.85"
+  },
+  {
+    "objectID": "index.html#section",
+    "href": "index.html#section",
+    "title": "Ziyan (Freya) Zheng",
+    "section": "",
+    "text": "💼 Work Experience\n\n\n\nCredit Risk Analyst\n\n\nCNOOC Finance Co., Ltd. — Beijing, China\n\n\nAug 2020 – Jul 2024\n\n\nManaged and monitored a commercial lending portfolio of ¥30B+ across 50+ corporate clients. Built credit risk scoring models, developed an AML transaction monitoring system from scratch after uncovering an embezzlement case, and led a 15-person cross-functional team to upgrade the lending monitoring platform. Authored ~100 regulatory and bureau-facing reports and drove portfolio risk reduction initiatives.\n\n\n\n\nSettlement & Transaction Banking Analyst\n\n\nCNOOC Finance Co., Ltd. — Beijing, China\n\n\nJul 2017 – Jul 2020\n\n\nExecuted daily settlement operations and managed transaction banking workflows. Conducted KYC due diligence, monitored fund flows for anomaly detection, and contributed to internal controls and compliance frameworks for financial operations.\n\n\n\n\n\n🎓 Education\n\n\n\nM.S. in Business Analytics\n\n\nUniversity of California, San Diego — Rady School of Management\n\n\nSep 2024 – Jun 2026 (Expected)\n\n\nCoursework: Machine Learning, Fraud Analytics, Data Mining, Statistical Modeling, Project Management. Capstone project with Experian on fraud portfolio analytics. Built AI-powered applications including a pet diet recommendation app and wine rating prediction system.\n\n\n\n\nM.S. in Financial Analysis\n\n\nUniversity of New South Wales - Sydney, Australia\n\n\nJuly 2016 – Jun 2017 (Expected)\n\n\nCoursework: Business Risk Management, Applied Portfolio Management and Modelling, International Financial Statement Analysis, Business Analysis and Valuation, Capital Budgeting and Financial Decisions.\n\n\n\n\nB.A. in Commerce (Accounting & Quantitative Business Analysis)\n\n\nUniversity of Sydney - Sydney, Australia\n\n\nJuly 2013 – Jun 2016\n\n\nCoursework: Statistical Modelling for Business, Predictive Analytics, Management Science, Methods of Decision Analysis, Discrete Mathematics, Auditing and Assurance, Corporate Finance.\n\n\n\n\n\n🛠 Skills & Tools\n\n\nPython SQL Polars Pandas Scikit-learn Tableau Excel / VBA Credit Risk Modeling Fraud Detection AML / KYC Regulatory Reporting"
+  },
+  {
+    "objectID": "index_1.html",
+    "href": "index_1.html",
+    "title": "Ziyan (Freya) Zheng",
+    "section": "",
+    "text": "Email\n  \n  \n    \n     LinkedIn\n  \n  \n    \n     GitHub\n  \n\n  \n  \nAs a data analyst with over six years in financial services, I specialize in risk analytics, fraud detection, and compliance systems, leveraging my expertise in machine learning and artificial intelligence. Currently pursuing a Master’s in Business Analytics at UC San Diego, I focus on integrating advanced data solutions with actionable insights to address complex industry challenges.\nAt CNOOC Finance, I built a fraud/AML detection system, automated compliance processes, and developed analytics infrastructure for a multibillion-dollar portfolio. My technical skills include Python, SQL, NLP, and Tableau, which I utilize to create predictive models and data pipelines. I am motivated by opportunities to enhance trust and safety within fintech and financial services."
+  },
+  {
+    "objectID": "index_1.html#section",
+    "href": "index_1.html#section",
+    "title": "Ziyan (Freya) Zheng",
+    "section": "",
+    "text": "📊 Key Highlights\n\n\n\n&lt;div class=\"number\"&gt;6+&lt;/div&gt;\n&lt;div class=\"label\"&gt;Years in Finance&lt;/div&gt;\n\n\n&lt;div class=\"number\"&gt;¥30B+&lt;/div&gt;\n&lt;div class=\"label\"&gt;Portfolio Managed&lt;/div&gt;\n\n\n&lt;div class=\"number\"&gt;~100&lt;/div&gt;\n&lt;div class=\"label\"&gt;Regulatory Reports&lt;/div&gt;\n\n\n&lt;div class=\"number\"&gt;CFA L3&lt;/div&gt;\n&lt;div class=\"label\"&gt;Candidate&lt;/div&gt;\n\n\n\n\n\n💼 Work Experience\n\n\n\nCredit Risk Analyst\n\n\nCNOOC Finance Co., Ltd. — Beijing, China\n\n\nAug 2020 – Jul 2024\n\n\nManaged and monitored a commercial lending portfolio of ¥30B+ across 50+ corporate clients. Built credit risk scoring models, developed an AML transaction monitoring system from scratch after uncovering an embezzlement case, and led a 15-person cross-functional team to upgrade the lending monitoring platform. Authored ~100 regulatory and bureau-facing reports and drove portfolio risk reduction initiatives.\n\n\n\n\nSettlement & Transaction Banking Analyst\n\n\nCNOOC Finance Co., Ltd. — Beijing, China\n\n\nJul 2017 – Jul 2020\n\n\nExecuted daily settlement operations and managed transaction banking workflows. Conducted KYC due diligence, monitored fund flows for anomaly detection, and contributed to internal controls and compliance frameworks for financial operations.\n\n\n\n\n\n🎓 Education\n\n\n\nM.S. in Business Analytics\n\n\nUniversity of California, San Diego — Rady School of Management\n\n\nSep 2024 – Jun 2026 (Expected)\n\n\nCoursework: Machine Learning, Fraud Analytics, Data Mining, Statistical Modeling, Project Management. Capstone project with Experian on fraud portfolio analytics. Built AI-powered applications including a pet diet recommendation app and wine rating prediction system.\n\n\n\n\nB.A. in English\n\n\nBeijing Foreign Studies University — Beijing, China\n\n\nSep 2013 – Jun 2017\n\n\nStrong foundation in cross-cultural communication and bilingual proficiency (English & Mandarin Chinese).\n\n\n\n\n\n🛠 Skills & Tools\n\n\nPython SQL Polars Pandas Scikit-learn Tableau Excel / VBA Credit Risk Modeling Fraud Detection AML / KYC Transaction Monitoring Regulatory Reporting"
+  },
+  {
+    "objectID": "index——2.html",
+    "href": "index——2.html",
+    "title": "Ziyan (Freya) Zheng",
+    "section": "",
+    "text": "Email\n  \n  \n    \n     LinkedIn\n  \n  \n    \n     GitHub\n  \n  \n    \n     Resume\n  \n\n  \n  \nM.S. Business Analytics candidate at UC San Diego — Rady School of Management with 6+ years of professional experience in credit risk, fraud detection, AML/KYC, and transaction monitoring in the financial services industry. Passionate about leveraging data science and machine learning to build smarter, safer financial systems. CFA Level III Candidate.\nActively seeking roles in Fraud Analytics · Credit Risk · AML/Financial Crimes · Data Science within fintech and financial services.\n\n\n\n\n\n📊 Key Highlights\n\n\n\n&lt;div class=\"number\"&gt;6+&lt;/div&gt;\n&lt;div class=\"label\"&gt;Years in Finance&lt;/div&gt;\n\n\n&lt;div class=\"number\"&gt;¥30B+&lt;/div&gt;\n&lt;div class=\"label\"&gt;Portfolio Managed&lt;/div&gt;\n\n\n&lt;div class=\"number\"&gt;~100&lt;/div&gt;\n&lt;div class=\"label\"&gt;Regulatory Reports&lt;/div&gt;\n\n\n&lt;div class=\"number\"&gt;CFA L3&lt;/div&gt;\n&lt;div class=\"label\"&gt;Candidate&lt;/div&gt;\n\n\n\n\n\n💼 Work Experience\n\n\n\nCredit Risk Analyst\n\n\nCNOOC Finance Co., Ltd. — Beijing, China\n\n\nAug 2020 – Jul 2024\n\n\nManaged and monitored a commercial lending portfolio of ¥30B+ across 50+ corporate clients. Built credit risk scoring models, developed an AML transaction monitoring system from scratch after uncovering an embezzlement case, and led a 15-person cross-functional team to upgrade the lending monitoring platform. Authored ~100 regulatory and bureau-facing reports and drove portfolio risk reduction initiatives.\n\n\n\n\nSettlement & Transaction Banking Analyst\n\n\nCNOOC Finance Co., Ltd. — Beijing, China\n\n\nJul 2017 – Jul 2020\n\n\nExecuted daily settlement operations and managed transaction banking workflows. Conducted KYC due diligence, monitored fund flows for anomaly detection, and contributed to internal controls and compliance frameworks for financial operations.\n\n\n\n\n\n🎓 Education\n\n\n\nM.S. in Business Analytics\n\n\nUniversity of California, San Diego — Rady School of Management\n\n\nSep 2024 – Jun 2026 (Expected)\n\n\nCoursework: Machine Learning, Fraud Analytics, Data Mining, Statistical Modeling, Project Management. Capstone project with Experian on fraud portfolio analytics. Built AI-powered applications including a pet diet recommendation app and wine rating prediction system.\n\n\n\n\nB.A. in English\n\n\nBeijing Foreign Studies University — Beijing, China\n\n\nSep 2013 – Jun 2017\n\n\nStrong foundation in cross-cultural communication and bilingual proficiency (English & Mandarin Chinese).\n\n\n\n\n\n🛠 Skills & Tools\n\n\nPython SQL Polars Pandas Scikit-learn Tableau Excel / VBA Credit Risk Modeling Fraud Detection AML / KYC Transaction Monitoring Regulatory Reporting"
+  }
+]

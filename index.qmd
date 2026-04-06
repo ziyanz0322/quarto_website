@@ -1,0 +1,258 @@
+---
+title: "Ziyan (Freya) Zheng"
+image: "files/profile_pic.JPG"
+toc: false
+about:
+  id: about-block
+  template: trestles
+  image-shape: round
+  image-width: 14em
+  links:
+    - icon: envelope
+      text: Email
+      href: mailto:ziyanz0322@gmail.com
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/ziyan-zheng0322
+    - icon: github
+      text: GitHub
+      href: https://github.com/ziyanz0322
+page-layout: full
+---
+
+<style>
+/* ── Clean Bright Theme ── */
+:root {
+  --accent: #3A86FF;
+  --accent-light: #E8F0FE;
+  --accent-soft: #BFD7FF;
+  --warm: #FF6B6B;
+  --mint: #2EC4B6;
+  --bg-main: #FAFCFF;
+  --text-primary: #1A2B4A;
+  --text-secondary: #5A6B8A;
+  --border-light: #E2E8F0;
+  --card-bg: #FFFFFF;
+}
+
+body {
+  background-color: var(--bg-main) !important;
+  color: var(--text-primary);
+}
+
+/* Hero section styling */
+#about-block {
+  padding: 2.5rem 0;
+}
+
+#about-block .about-entity {
+  border: none !important;
+}
+
+#about-block img.about-image {
+  border: 4px solid var(--accent-soft) !important;
+  box-shadow: 0 8px 30px rgba(58, 134, 255, 0.12);
+}
+
+#about-block .about-link {
+  background-color: var(--accent) !important;
+  color: #fff !important;
+  border: none !important;
+  border-radius: 8px !important;
+  padding: 0.5rem 1.2rem !important;
+  font-weight: 500 !important;
+  transition: all 0.2s ease !important;
+  font-size: 0.88rem !important;
+}
+
+#about-block .about-link:hover {
+  background-color: #2563EB !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(58, 134, 255, 0.3);
+}
+
+/* Section headings */
+.section-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-top: 2rem;
+  margin-bottom: 0.8rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 3px solid var(--accent-light);
+  letter-spacing: 0.02em;
+}
+
+/* Timeline cards */
+.exp-card {
+  background: var(--card-bg);
+  border-left: 4px solid var(--accent);
+  border-radius: 0 10px 10px 0;
+  padding: 1rem 1.4rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.exp-card:hover {
+  transform: translateX(4px);
+  box-shadow: 0 4px 16px rgba(58, 134, 255, 0.1);
+}
+
+.exp-card.edu {
+  border-left-color: var(--mint);
+}
+
+.exp-card .role {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.exp-card .company {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin: 0.1rem 0;
+}
+
+.exp-card.edu .company {
+  color: var(--mint);
+}
+
+.exp-card .period {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  margin: 0.15rem 0 0.5rem 0;
+  font-style: italic;
+}
+
+.exp-card .details {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* Skills tags */
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.skill-tag {
+  background: var(--accent-light);
+  color: var(--accent);
+  padding: 0.3rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.skill-tag.green {
+  background: #E6F9F5;
+  color: var(--mint);
+}
+
+/* Hide all stray Quarto-generated hr / border lines */
+hr,
+.about-entity hr,
+#about-block hr,
+.quarto-about-trestles .about-entity,
+.quarto-about-trestles .about-contents {
+  border: none !important;
+  border-top: none !important;
+  border-bottom: none !important;
+}
+hr {
+  display: none !important;
+}
+</style>
+
+
+:::{#about-block}
+
+As a data analyst with over six years in financial services, I specialize in **risk analytics, fraud detection, and compliance systems**, leveraging my expertise in machine learning and artificial intelligence. Currently pursuing a Master’s in Business Analytics at UC San Diego, I focus on integrating advanced data solutions with actionable insights to address complex industry challenges.
+
+At CNOOC Finance, I built a fraud/AML detection system, automated compliance processes, and developed analytics infrastructure for a multibillion-dollar portfolio. My technical skills include Python, SQL, NLP, and Tableau, which I utilize to create predictive models and data pipelines. I am motivated by opportunities to enhance trust and safety within fintech and financial services.
+
+:::
+
+
+## {.section-title}
+:::{}
+<div class="section-title">💼 Work Experience</div>
+
+<div class="exp-card">
+  <p class="role">Credit Risk Analyst</p>
+  <p class="company">CNOOC Finance Co., Ltd. — Beijing, China</p>
+  <p class="period">Aug 2020 – Jul 2024</p>
+  <p class="details">
+    Managed and monitored a commercial lending portfolio of ¥30B+ across 50+ corporate clients. Built credit risk scoring models, developed an AML transaction monitoring system from scratch after uncovering an embezzlement case, and led a 15-person cross-functional team to upgrade the lending monitoring platform. Authored ~100 regulatory and bureau-facing reports and drove portfolio risk reduction initiatives.
+  </p>
+</div>
+
+<div class="exp-card">
+  <p class="role">Settlement & Transaction Banking Analyst</p>
+  <p class="company">CNOOC Finance Co., Ltd. — Beijing, China</p>
+  <p class="period">Jul 2017 – Jul 2020</p>
+  <p class="details">
+    Executed daily settlement operations and managed transaction banking workflows. Conducted KYC due diligence, monitored fund flows for anomaly detection, and contributed to internal controls and compliance frameworks for financial operations.
+  </p>
+</div>
+:::
+
+
+:::{}
+<div class="section-title">🎓 Education</div>
+
+<div class="exp-card edu">
+  <p class="role">M.S. in Business Analytics</p>
+  <p class="company">University of California, San Diego — Rady School of Management</p>
+  <p class="period">Sep 2024 – Jun 2026 (Expected)</p>
+  <p class="details">
+    Coursework: Machine Learning, Fraud Analytics, Data Mining, Statistical Modeling, Project Management. Capstone project with Experian on fraud portfolio analytics. Built AI-powered applications including a pet diet recommendation app and wine rating prediction system.
+  </p>
+</div>
+
+<div class="exp-card edu">
+  <p class="role">M.S. in Financial Analysis</p>
+  <p class="company">University of New South Wales - Sydney, Australia</p>
+  <p class="period">July 2016 – Jun 2017 (Expected)</p>
+  <p class="details">
+    Coursework: Business Risk Management, Applied Portfolio Management and Modelling, International Financial Statement Analysis, Business Analysis and Valuation, Capital Budgeting and Financial Decisions.
+  </p>
+</div>
+
+<div class="exp-card edu">
+  <p class="role">B.A. in Commerce (Accounting & Quantitative Business Analysis)</p>
+  <p class="company">University of Sydney - Sydney, Australia</p>
+  <p class="period">July 2013 – Jun 2016</p>
+  <p class="details">
+    Coursework: Statistical Modelling for Business, Predictive Analytics, Management Science, Methods of Decision Analysis, Discrete Mathematics, Auditing and Assurance, Corporate Finance.
+  </p>
+</div>
+:::
+
+
+:::{}
+<div class="section-title">🛠 Skills & Tools</div>
+
+<div class="skills-container">
+  <span class="skill-tag">Python</span>
+  <span class="skill-tag">SQL</span>
+  <span class="skill-tag">Polars</span>
+  <span class="skill-tag">Pandas</span>
+  <span class="skill-tag">Scikit-learn</span>
+  <span class="skill-tag">Tableau</span>
+  <span class="skill-tag">Excel / VBA</span>
+  <span class="skill-tag green">Credit Risk Modeling</span>
+  <span class="skill-tag green">Fraud Detection</span>
+  <span class="skill-tag green">AML / KYC</span>
+  <span class="skill-tag green">Regulatory Reporting</span>
+</div>
+:::

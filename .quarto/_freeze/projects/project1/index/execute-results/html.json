@@ -1,0 +1,12 @@
+{
+  "hash": "2bf5c83208624f3fe8862827bb811d4c",
+  "result": {
+    "engine": "jupyter",
+    "markdown": "---\ntitle: \"Analysis of Cars\"\nauthor: Your Name\ndate: today\n---\n\n# Header\n\nLet's investigate the relationship between fuel efficiency (`mpg`) and engine displacement (`disp`) from the `mtcars` dataset.\n\n## Sub-Header\n\nHere is a plot:\n\n::: {#dae2ec42 .cell message='false' execution_count=1}\n``` {.python .cell-code}\nimport pandas as pd\nimport matplotlib.pyplot as plt\nfrom sklearn.datasets import fetch_openml\n\nmtcars = pd.read_csv(\"https://gist.githubusercontent.com/seankross/a412dfbd88b3db70b74b/raw/5f23f993cd87c283ce766e7ac6b329ee7cc2e1d1/mtcars.csv\")\n\ncorr = mtcars[\"mpg\"].corr(mtcars[\"disp\"])\nprint(f\"Correlation between mpg and disp: {corr:.2f}\")\n\nplt.figure()\nplt.scatter(mtcars[\"mpg\"], mtcars[\"disp\"], color=\"dodgerblue\", s=40)\nplt.xlabel(\"mpg\")\nplt.ylabel(\"disp\")\nplt.tight_layout()\nplt.show()\n```\n\n::: {.cell-output .cell-output-stdout}\n```\nCorrelation between mpg and disp: -0.85\n```\n:::\n\n::: {.cell-output .cell-output-display}\n![](index_files/figure-html/cell-2-output-2.png){width=661 height=468}\n:::\n:::\n\n\n",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": [],
+    "includes": {}
+  }
+}

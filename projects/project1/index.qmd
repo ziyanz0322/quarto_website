@@ -1,0 +1,33 @@
+---
+title: "Analysis of Cars"
+author: Your Name
+date: today
+---
+
+# Header
+
+Let's investigate the relationship between fuel efficiency (`mpg`) and engine displacement (`disp`) from the `mtcars` dataset.
+
+## Sub-Header
+
+Here is a plot:
+
+```{python}
+#| message: false
+
+import pandas as pd
+import matplotlib.pyplot as plt
+from sklearn.datasets import fetch_openml
+
+mtcars = pd.read_csv("https://gist.githubusercontent.com/seankross/a412dfbd88b3db70b74b/raw/5f23f993cd87c283ce766e7ac6b329ee7cc2e1d1/mtcars.csv")
+
+corr = mtcars["mpg"].corr(mtcars["disp"])
+print(f"Correlation between mpg and disp: {corr:.2f}")
+
+plt.figure()
+plt.scatter(mtcars["mpg"], mtcars["disp"], color="dodgerblue", s=40)
+plt.xlabel("mpg")
+plt.ylabel("disp")
+plt.tight_layout()
+plt.show()
+```
