@@ -1,0 +1,332 @@
+---
+title: "Replication of Card and Krueger (1994)"
+subtitle: "Minimum Wages and Employment: A Case Study of the Fast-Food Industry in New Jersey and Pennsylvania"
+author: "Ziyan (Freya) Zheng"
+date: today
+format:
+  html:
+    toc: true
+    code-fold: true
+---
+
+```{python}
+#| echo: false
+import warnings
+warnings.filterwarnings('ignore')
+
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+from scipy.stats import ttest_ind
+
+# ── Simple OLS helper (no statsmodels dependency) ───────────────────────────
+def ols(y_raw, *Xs):
+    """
+    OLS with intercept. Xs are additional regressors (1-D arrays).
+    Returns (coefficients, standard_errors, n).
+    """
+    cols = [np.ones(len(y_raw))] + list(Xs)
+    X = np.column_stack(cols).astype(float)
+    y = np.asarray(y_raw, dtype=float)
+    mask = ~(np.isnan(y) | np.any(np.isnan(X), axis=1))
+    y_, X_ = y[mask], X[mask]
+    XtX_inv = np.linalg.inv(X_.T @ X_)
+    b = XtX_inv @ X_.T @ y_
+    resid = y_ - X_ @ b
+    s2 = (resid @ resid) / (len(y_) - X_.shape[1])
+    se = np.sqrt(np.diag(s2 * XtX_inv))
+    return b, se, int(mask.sum())
+
+
+# ── Load Card & Krueger data (fixed-width format per the official codebook) ─
+colspecs = [
+    (0,  3),  # SHEET
+    (4,  5),  # CHAIN
+    (6,  7),  # CO_OWNED
+    (8,  9),  # STATE
+    (10, 11), # SOUTHJ
+    (12, 13), # CENTRALJ
+    (14, 15), # NORTHJ
+    (16, 17), # PA1
+    (18, 19), # PA2
+    (20, 21), # SHORE
+    (22, 24), # NCALLS
+    (25, 30), # EMPFT
+    (31, 36), # EMPPT
+    (37, 42), # NMGRS
+    (43, 48), # WAGE_ST
+    (49, 54), # INCTIME
+    (55, 60), # FIRSTINC
+    (61, 62), # BONUS
+    (63, 68), # PCTAFF
+    (69, 70), # MEALS
+    (71, 76), # OPEN
+    (77, 82), # HRSOPEN
+    (83, 88), # PSODA
+    (89, 94), # PFRY
+    (95,100), # PENTREE
+    (101,103),# NREGS
+    (104,106),# NREGS11
+    (107,108),# TYPE2
+    (109,110),# STATUS2
+    (111,117),# DATE2
+    (118,120),# NCALLS2
+    (121,126),# EMPFT2
+    (127,132),# EMPPT2
+    (133,138),# NMGRS2
+    (139,144),# WAGE_ST2
+    (145,150),# INCTIME2
+    (151,156),# FIRSTIN2
+    (157,158),# SPECIAL2
+    (159,160),# MEALS2
+    (161,166),# OPEN2R
+    (167,172),# HRSOPEN2
+    (173,178),# PSODA2
+    (179,184),# PFRY2
+    (185,190),# PENTREE2
+    (191,193),# NREGS2
+    (194,196),# NREGS112
+]
+
+colnames = [
+    'sheet','chain','co_owned','state',
+    'southj','centralj','northj','pa1','pa2','shore',
+    'ncalls','empft','emppt','nmgrs','wage_st',
+    'inctime','firstinc','bonus','pctaff','meals',
+    'open','hrsopen','psoda','pfry','pentree','nregs','nregs11',
+    'type2','status2','date2','ncalls2',
+    'empft2','emppt2','nmgrs2','wage_st2',
+    'inctime2','firstin2','special2','meals2',
+    'open2r','hrsopen2','psoda2','pfry2','pentree2','nregs2','nregs112'
+]
+
+data_path = "../../../hw/hw2/njmin/public.dat"
+df = pd.read_fwf(data_path, colspecs=colspecs, names=colnames, na_values=['.'])
+
+# ── Full-time-equivalent employment ─────────────────────────────────────────
+df['fte1'] = df['empft'] + 0.5 * df['emppt'] + df['nmgrs']
+df['fte2'] = df['empft2'] + 0.5 * df['emppt2'] + df['nmgrs2']
+df['delta_fte'] = df['fte2'] - df['fte1']
+
+# Balanced sample: second interview completed + employment observed both waves
+bal = df[(df['status2'] == 1) & df['fte1'].notna() & df['fte2'].notna()].copy()
+
+nj = bal[bal['state'] == 1]
+pa = bal[bal['state'] == 0]
+```
+
+## Introduction
+
+In April 1992, New Jersey raised its state minimum wage from \$4.25 to \$5.05 per hour — while neighboring Pennsylvania made no change. Card and Krueger (1994) used this sharp, geographically localized policy change to ask a question that economists thought they already knew the answer to: **Does raising the minimum wage destroy jobs?**
+
+Classical supply-and-demand predicts it should. If employers must pay more per worker, the theory says they will hire fewer of them. But Card and Krueger surveyed roughly 400 fast-food restaurants in both states — before (February–March 1992) and after (November–December 1992) the NJ wage hike — and found the opposite: *employment in New Jersey fast-food restaurants rose* relative to Pennsylvania after the increase.
+
+Their design is a textbook **difference-in-differences (DiD)**: compare the employment change in NJ (treated) to the simultaneous employment change in PA (control), which captures what would have happened in NJ *absent* the policy. This "double-differencing" cancels out any common macro shocks that hit both states at the same time. The main outcome variable is **full-time-equivalent (FTE) employment**:
+
+$$\text{FTE} = \text{Full-time employees} + 0.5 \times \text{Part-time employees} + \text{Managers}$$
+
+The paper's central result — that a minimum wage increase did *not* reduce employment — has been replicated countless times and fundamentally changed the debate on labor market policy.
+
+---
+
+## Main Analysis
+
+### Table 2 — Employment and Wage Means by State
+
+Table 2 in the paper reports mean values of key variables for NJ and PA stores in both waves, the NJ − PA difference, and a t-statistic. Here I replicate the employment and wage rows.
+
+```{python}
+def tbl2_row(v1, v2, label):
+    a, b_ = nj[v1].dropna(), pa[v1].dropna()
+    c, d_ = nj[v2].dropna(), pa[v2].dropna()
+    db = a.mean() - b_.mean();  tb = ttest_ind(a, b_).statistic
+    da = c.mean() - d_.mean();  ta = ttest_ind(c, d_).statistic
+    return dict(Variable=label,
+                **{'NJ Before': f"{a.mean():.2f}",
+                   'PA Before': f"{b_.mean():.2f}",
+                   'Diff (t)':  f"{db:.2f} ({tb:.2f})",
+                   'NJ After':  f"{c.mean():.2f}",
+                   'PA After':  f"{d_.mean():.2f}",
+                   'Diff (t) ': f"{da:.2f} ({ta:.2f})"})
+
+rows = [
+    tbl2_row('fte1',    'fte2',    'FTE employment'),
+    tbl2_row('empft',   'empft2',  'Full-time employees'),
+    tbl2_row('emppt',   'emppt2',  'Part-time employees'),
+    tbl2_row('nmgrs',   'nmgrs2',  'Managers'),
+    tbl2_row('wage_st', 'wage_st2','Starting wage ($/hr)'),
+    tbl2_row('hrsopen', 'hrsopen2','Hours open per day'),
+]
+
+print(pd.DataFrame(rows).to_string(index=False))
+```
+
+**Reading Table 2:** Before the wage hike, NJ stores employed about 2.9 fewer FTE workers than PA stores on average. After the hike, that gap closed to near zero (~−0.1). NJ starting wages also jumped sharply (from ~\$4.61 to ~\$5.05) while PA wages barely moved — confirming that the NJ policy *was* binding and that PA serves as a clean control.
+
+---
+
+### Table 3 — Difference-in-Differences Across Samples (Rows 1–3, Cols 1–3)
+
+Table 3 in the paper systematically checks whether the DiD result holds across different geographic subsamples of the data. The nine cells below form the 3 × 3 grid: three samples (rows) × three summary statistics (columns).
+
+```{python}
+def did_block(subset, label):
+    nj_ = subset[subset['state'] == 1]
+    pa_ = subset[subset['state'] == 0]
+
+    diff_b = nj_['fte1'].mean() - pa_['fte1'].mean()
+    diff_a = nj_['fte2'].mean() - pa_['fte2'].mean()
+    did    = diff_a - diff_b
+    tb = ttest_ind(nj_['fte1'].dropna(), pa_['fte1'].dropna()).statistic
+    ta = ttest_ind(nj_['fte2'].dropna(), pa_['fte2'].dropna()).statistic
+
+    # SE of DiD via OLS on ΔFTE ~ NJ-dummy
+    nj_ind = (subset['state'] == 1).astype(float).values
+    b, se, _ = ols(subset['delta_fte'].values, nj_ind)
+    se_did = se[1]
+
+    return {
+        'Sample': label,
+        'NJ−PA Before (t)': f"{diff_b:.2f} ({tb:.2f})",
+        'NJ−PA After (t)':  f"{diff_a:.2f} ({ta:.2f})",
+        'DiD (SE)':          f"{did:.2f} ({se_did:.2f})",
+    }
+
+# Row 1: full NJ + PA balanced sample
+r1 = did_block(bal, 'NJ and PA (full sample)')
+
+# Row 2: NJ + northeastern PA suburbs (PA1 region)
+r2 = did_block(bal[(bal['state']==1) | (bal['pa1']==1)],
+               'NJ and northeastern PA (PA1)')
+
+# Row 3: NJ + Easton/Phillipsburg corridor (PA2 region)
+r3 = did_block(bal[(bal['state']==1) | (bal['pa2']==1)],
+               'NJ and PA2 region (Easton)')
+
+print(pd.DataFrame([r1, r2, r3]).to_string(index=False))
+```
+
+**What the table shows:** The DiD is positive (~2–3 FTE) in every row, meaning NJ employment rose relative to PA employment regardless of which PA comparison group we use. The pre-period NJ−PA gap is negative in all rows (NJ started below PA), while the post-period gap is much closer to zero — the hallmark of a positive treatment effect under parallel trends.
+
+---
+
+### Table 4 — OLS Proportional-Gap Estimate (Column i)
+
+Table 4 replaces the binary NJ/PA dummy with a continuous **proportional gap** variable that captures how much each NJ store *needed* to raise wages to comply with the new \$5.05 minimum:
+
+$$\text{GAP}_i = \max\!\left(0,\ \frac{5.05 - \text{WAGE\_ST}_i}{\text{WAGE\_ST}_i}\right)$$
+
+Stores already paying ≥ \$5.05 (or all PA stores) have GAP = 0. NJ stores with low starting wages have a larger gap and faced stronger pressure to adjust. If higher minimum wages reduce employment, we should observe *larger* employment declines in higher-gap stores.
+
+```{python}
+bal = bal.copy()
+bal['gap'] = np.where(
+    bal['state'] == 1,
+    np.maximum(0.0, (5.05 - bal['wage_st']) / bal['wage_st']),
+    0.0
+)
+
+b_t4, se_t4, n_t4 = ols(bal['delta_fte'].values, bal['gap'].values)
+coef_gap, se_gap = b_t4[1], se_t4[1]
+t_gap = coef_gap / se_gap
+p_gap = 2 * (1 - __import__('scipy').stats.t.cdf(abs(t_gap), df=n_t4-2))
+
+print("Table 4, Column (i) — OLS: ΔFTE on proportional gap")
+print(f"  Intercept          : {b_t4[0]:.2f}  (SE {se_t4[0]:.2f})")
+print(f"  Coefficient on GAP : {coef_gap:.2f}  (SE {se_gap:.2f})")
+print(f"  t-statistic        : {t_gap:.2f}")
+print(f"  p-value            : {p_gap:.3f}")
+print(f"  N                  : {n_t4}")
+print()
+print(f"Interpretation: a store at the median NJ gap (~0.10) gained an")
+print(f"  additional {coef_gap*0.10:.2f} FTE workers relative to an already-compliant store.")
+```
+
+**Interpretation:** The positive coefficient on GAP directly contradicts the prediction that higher minimum wages destroy jobs: stores *most* exposed to the wage hike (highest gap) actually *gained* FTE employment relative to those least exposed. This robust result holds even when we move from the binary NJ/PA comparison to a continuous treatment-intensity measure.
+
+---
+
+## Something Additional — Parallel Trends Visualization
+
+The DiD estimator produces a valid causal estimate only if the **parallel trends assumption** holds. The chart below visualizes this assumption and shows where the estimated causal effect comes from.
+
+```{python}
+nj_b = nj['fte1'].mean()
+nj_a = nj['fte2'].mean()
+pa_b = pa['fte1'].mean()
+pa_a = pa['fte2'].mean()
+
+# Counterfactual: what NJ would have looked like if it followed PA's trend
+pa_trend   = pa_a - pa_b
+nj_counter = nj_b + pa_trend
+did_est    = nj_a - nj_counter
+
+fig, ax = plt.subplots(figsize=(8.5, 5.5))
+
+t = [0, 1]
+
+ax.plot(t, [nj_b, nj_a], 'o-', color='#3A86FF',
+        lw=2.5, ms=9, label='New Jersey (actual)', zorder=4)
+ax.plot(t, [pa_b, pa_a], 's-', color='#FF6B6B',
+        lw=2.5, ms=9, label='Pennsylvania (actual)', zorder=4)
+ax.plot(t, [nj_b, nj_counter], 'o--', color='#3A86FF',
+        lw=1.8, ms=9, alpha=0.40,
+        label='NJ counterfactual (PA\'s trend applied to NJ)', zorder=3)
+
+# DiD bracket
+bracket_x = 1.07
+ax.annotate('', xy=(bracket_x, nj_a), xytext=(bracket_x, nj_counter),
+            arrowprops=dict(arrowstyle='<->', color='#2EC4B6', lw=2.2))
+ax.text(bracket_x + 0.03, (nj_a + nj_counter) / 2,
+        f'Causal effect\n(DiD) ≈ {did_est:.2f} FTE',
+        va='center', color='#2EC4B6', fontsize=10.5, fontweight='bold')
+
+# Policy event line
+ax.axvline(x=0.5, color='gray', ls=':', lw=1.2, alpha=0.7)
+ax.text(0.52, pa_b - 0.6,
+        'NJ minimum wage\nincreased (Apr 1992)',
+        color='gray', fontsize=8.5, va='top')
+
+ax.set_xticks([0, 1])
+ax.set_xticklabels(['Before\n(Feb–Mar 1992)', 'After\n(Nov–Dec 1992)'], fontsize=11)
+ax.set_ylabel('Mean FTE Employment per Store', fontsize=11)
+ax.set_title('Card & Krueger (1994) — DiD Parallel-Trends Visualization\n'
+             'NJ vs. PA Fast-Food Employment',
+             fontsize=12, fontweight='bold')
+ax.legend(fontsize=9.5, loc='lower left')
+ax.set_xlim(-0.18, 1.55)
+ax.grid(axis='y', alpha=0.30)
+plt.tight_layout()
+plt.show()
+```
+
+### The Parallel Trends Assumption Explained
+
+The DiD estimate is defined as:
+
+$$\hat\delta_{\text{DiD}} =
+  \underbrace{(\bar{E}_{NJ,\text{after}} - \bar{E}_{NJ,\text{before}})}_{\text{NJ's employment change}}
+- \underbrace{(\bar{E}_{PA,\text{after}} - \bar{E}_{PA,\text{before}})}_{\text{PA's employment change}}$$
+
+This formula rests on a single critical assumption: **in the absence of the NJ minimum-wage increase, NJ and PA employment would have followed the same trend over time.** Formally:
+
+$$E[Y_{NJ,\text{after}}^{(0)} - Y_{NJ,\text{before}}^{(0)}] = E[Y_{PA,\text{after}}^{(0)} - Y_{PA,\text{before}}^{(0)}]$$
+
+where the superscript $(0)$ denotes the *counterfactual* (untreated) potential outcome.
+
+**The chart makes the assumption concrete.** The dashed blue line shows what NJ employment *would* have looked like had it followed PA's trend exactly. The actual NJ line (solid blue) sits above this counterfactual after April 1992 — the vertical teal gap is our estimate of the causal effect (~+2.76 FTE per store).
+
+**Why the assumption is plausible here:**
+
+- NJ and PA fast-food markets are geographically adjacent and face the same national macroeconomic shocks.
+- Both states are surveyed over the same period (no time-lag confounding).
+- The restaurant chains (Burger King, KFC, Roy Rogers, Wendy's) are identical in both states, removing chain-level heterogeneity.
+- Starting wages and employment levels were similar before the policy (see Table 2).
+
+**Why it could fail:**
+
+- NJ and PA could differ in local economic conditions (e.g., a PA-specific recession).
+- Other policies enacted around the same time in only one state would confound the estimate.
+- If NJ was already on a steeper growth trajectory *before* the minimum wage (pre-existing trend differences), the control would be invalid.
+
+With only two time points we cannot formally test parallel trends — the assumption is inherently untestable from the data alone. But the similarity of employment levels and trends before the policy (visible in Table 2) makes it credible. The parallel trends assumption is the **soul of difference-in-differences**: the entire causal interpretation rests on it, which is why researchers using DiD always devote careful attention to justifying it.
