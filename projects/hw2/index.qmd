@@ -100,7 +100,7 @@ colnames = [
     'open2r','hrsopen2','psoda2','pfry2','pentree2','nregs2','nregs112'
 ]
 
-data_path = "../../../hw/hw2/njmin/public.dat"
+data_path = "../../files/njmin/public.dat"
 df = pd.read_fwf(data_path, colspecs=colspecs, names=colnames, na_values=['.'])
 
 # ── Full-time-equivalent employment ─────────────────────────────────────────
@@ -158,7 +158,7 @@ rows = [
     tbl2_row('hrsopen', 'hrsopen2','Hours open per day'),
 ]
 
-print(pd.DataFrame(rows).to_string(index=False))
+pd.DataFrame(rows)
 ```
 
 **Reading Table 2:** Before the wage hike, NJ stores employed about 2.9 fewer FTE workers than PA stores on average. After the hike, that gap closed to near zero (~−0.1). NJ starting wages also jumped sharply (from ~\$4.61 to ~\$5.05) while PA wages barely moved — confirming that the NJ policy *was* binding and that PA serves as a clean control.
@@ -203,7 +203,7 @@ r2 = did_block(bal[(bal['state']==1) | (bal['pa1']==1)],
 r3 = did_block(bal[(bal['state']==1) | (bal['pa2']==1)],
                'NJ and PA2 region (Easton)')
 
-print(pd.DataFrame([r1, r2, r3]).to_string(index=False))
+pd.DataFrame([r1, r2, r3])
 ```
 
 **What the table shows:** The DiD is positive (~2–3 FTE) in every row, meaning NJ employment rose relative to PA employment regardless of which PA comparison group we use. The pre-period NJ−PA gap is negative in all rows (NJ started below PA), while the post-period gap is much closer to zero — the hallmark of a positive treatment effect under parallel trends.
