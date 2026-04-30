@@ -2,15 +2,18 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.25">
+<meta name="generator" content="quarto-1.9.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Ziyan (Freya) Zheng">
-<meta name="dcterms.date" content="2026-04-20">
+<meta name="dcterms.date" content="2026-04-29">
 
 <title>Replication of Card and Krueger (1994) – Ziyan (Freya) Zheng</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -60,7 +63,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -69,15 +72,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="quarto:offset" content="../../">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-5b4ad623e5705c0698d39aec6f10cf02.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-158031087360bce0ff56dc785ce39e06.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -105,9 +107,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -146,8 +151,6 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
-    </a>
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Ziyan (Freya) Zheng</span>
     </a>
@@ -223,7 +226,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">April 20, 2026</p>
+      <p class="date">April 29, 2026</p>
     </div>
   </div>
   
@@ -249,7 +252,7 @@ window.Quarto = {
 <section id="table-2-employment-and-wage-means-by-state" class="level3">
 <h3 class="anchored" data-anchor-id="table-2-employment-and-wage-means-by-state">Table 2 — Employment and Wage Means by State</h3>
 <p>Table 2 in the paper reports mean values of key variables for NJ and PA stores in both waves, the NJ − PA difference, and a t-statistic. Here I replicate the employment and wage rows.</p>
-<div id="416be8ab" class="cell" data-execution_count="2">
+<div id="2d3d612f" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> tbl2_row(v1, v2, label):</span>
@@ -274,16 +277,90 @@ window.Quarto = {
 <span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    tbl2_row(<span class="st">'hrsopen'</span>, <span class="st">'hrsopen2'</span>,<span class="st">'Hours open per day'</span>),</span>
 <span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>]</span>
 <span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(pd.DataFrame(rows).to_string(index<span class="op">=</span><span class="va">False</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>pd.DataFrame(rows)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
-<div class="cell-output cell-output-stdout">
-<pre><code>            Variable NJ Before PA Before      Diff (t) NJ After PA After     Diff (t) 
-      FTE employment     20.58     23.45 -2.86 (-2.25)    21.24    21.38 -0.14 (-0.12)
- Full-time employees      7.75     10.20 -2.45 (-2.19)     8.50     7.78   0.72 (0.69)
- Part-time employees     18.84     19.38 -0.54 (-0.40)    18.50    19.83 -1.33 (-0.98)
-            Managers      3.41      3.55 -0.14 (-1.09)     3.49     3.69 -0.20 (-1.42)
-Starting wage ($/hr)      4.61      4.63 -0.02 (-0.44)     5.08     4.62  0.46 (19.27)
-  Hours open per day     14.40     14.53 -0.14 (-0.37)    14.39    14.64 -0.25 (-0.69)</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="2">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Variable</th>
+<th data-quarto-table-cell-role="th">NJ Before</th>
+<th data-quarto-table-cell-role="th">PA Before</th>
+<th data-quarto-table-cell-role="th">Diff (t)</th>
+<th data-quarto-table-cell-role="th">NJ After</th>
+<th data-quarto-table-cell-role="th">PA After</th>
+<th data-quarto-table-cell-role="th">Diff (t)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>FTE employment</td>
+<td>20.58</td>
+<td>23.45</td>
+<td>-2.86 (-2.25)</td>
+<td>21.24</td>
+<td>21.38</td>
+<td>-0.14 (-0.12)</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>Full-time employees</td>
+<td>7.75</td>
+<td>10.20</td>
+<td>-2.45 (-2.19)</td>
+<td>8.50</td>
+<td>7.78</td>
+<td>0.72 (0.69)</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>Part-time employees</td>
+<td>18.84</td>
+<td>19.38</td>
+<td>-0.54 (-0.40)</td>
+<td>18.50</td>
+<td>19.83</td>
+<td>-1.33 (-0.98)</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">3</th>
+<td>Managers</td>
+<td>3.41</td>
+<td>3.55</td>
+<td>-0.14 (-1.09)</td>
+<td>3.49</td>
+<td>3.69</td>
+<td>-0.20 (-1.42)</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">4</th>
+<td>Starting wage ($/hr)</td>
+<td>4.61</td>
+<td>4.63</td>
+<td>-0.02 (-0.44)</td>
+<td>5.08</td>
+<td>4.62</td>
+<td>0.46 (19.27)</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">5</th>
+<td>Hours open per day</td>
+<td>14.40</td>
+<td>14.53</td>
+<td>-0.14 (-0.37)</td>
+<td>14.39</td>
+<td>14.64</td>
+<td>-0.25 (-0.69)</td>
+</tr>
+</tbody>
+</table>
+
+</div>
 </div>
 </div>
 <p><strong>Reading Table 2:</strong> Before the wage hike, NJ stores employed about 2.9 fewer FTE workers than PA stores on average. After the hike, that gap closed to near zero (~−0.1). NJ starting wages also jumped sharply (from ~$4.61 to ~$5.05) while PA wages barely moved — confirming that the NJ policy <em>was</em> binding and that PA serves as a clean control.</p>
@@ -292,49 +369,84 @@ Starting wage ($/hr)      4.61      4.63 -0.02 (-0.44)     5.08     4.62  0.46 (
 <section id="table-3-difference-in-differences-across-samples-rows-13-cols-13" class="level3">
 <h3 class="anchored" data-anchor-id="table-3-difference-in-differences-across-samples-rows-13-cols-13">Table 3 — Difference-in-Differences Across Samples (Rows 1–3, Cols 1–3)</h3>
 <p>Table 3 in the paper systematically checks whether the DiD result holds across different geographic subsamples of the data. The nine cells below form the 3 × 3 grid: three samples (rows) × three summary statistics (columns).</p>
-<div id="489de330" class="cell" data-execution_count="3">
+<div id="0c02e7b3" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> did_block(subset, label):</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    nj_ <span class="op">=</span> subset[subset[<span class="st">'state'</span>] <span class="op">==</span> <span class="dv">1</span>]</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    pa_ <span class="op">=</span> subset[subset[<span class="st">'state'</span>] <span class="op">==</span> <span class="dv">0</span>]</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    diff_b <span class="op">=</span> nj_[<span class="st">'fte1'</span>].mean() <span class="op">-</span> pa_[<span class="st">'fte1'</span>].mean()</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    diff_a <span class="op">=</span> nj_[<span class="st">'fte2'</span>].mean() <span class="op">-</span> pa_[<span class="st">'fte2'</span>].mean()</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    did    <span class="op">=</span> diff_a <span class="op">-</span> diff_b</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    tb <span class="op">=</span> ttest_ind(nj_[<span class="st">'fte1'</span>].dropna(), pa_[<span class="st">'fte1'</span>].dropna()).statistic</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    ta <span class="op">=</span> ttest_ind(nj_[<span class="st">'fte2'</span>].dropna(), pa_[<span class="st">'fte2'</span>].dropna()).statistic</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="co"># SE of DiD via OLS on ΔFTE ~ NJ-dummy</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    nj_ind <span class="op">=</span> (subset[<span class="st">'state'</span>] <span class="op">==</span> <span class="dv">1</span>).astype(<span class="bu">float</span>).values</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    b, se, _ <span class="op">=</span> ols(subset[<span class="st">'delta_fte'</span>].values, nj_ind)</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    se_did <span class="op">=</span> se[<span class="dv">1</span>]</span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> {</span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>        <span class="st">'Sample'</span>: label,</span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>        <span class="st">'NJ−PA Before (t)'</span>: <span class="ss">f"</span><span class="sc">{</span>diff_b<span class="sc">:.2f}</span><span class="ss"> (</span><span class="sc">{</span>tb<span class="sc">:.2f}</span><span class="ss">)"</span>,</span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>        <span class="st">'NJ−PA After (t)'</span>:  <span class="ss">f"</span><span class="sc">{</span>diff_a<span class="sc">:.2f}</span><span class="ss"> (</span><span class="sc">{</span>ta<span class="sc">:.2f}</span><span class="ss">)"</span>,</span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>        <span class="st">'DiD (SE)'</span>:          <span class="ss">f"</span><span class="sc">{</span>did<span class="sc">:.2f}</span><span class="ss"> (</span><span class="sc">{</span>se_did<span class="sc">:.2f}</span><span class="ss">)"</span>,</span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Row 1: full NJ + PA balanced sample</span></span>
-<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>r1 <span class="op">=</span> did_block(bal, <span class="st">'NJ and PA (full sample)'</span>)</span>
-<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Row 2: NJ + northeastern PA suburbs (PA1 region)</span></span>
-<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>r2 <span class="op">=</span> did_block(bal[(bal[<span class="st">'state'</span>]<span class="op">==</span><span class="dv">1</span>) <span class="op">|</span> (bal[<span class="st">'pa1'</span>]<span class="op">==</span><span class="dv">1</span>)],</span>
-<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>               <span class="st">'NJ and northeastern PA (PA1)'</span>)</span>
-<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Row 3: NJ + Easton/Phillipsburg corridor (PA2 region)</span></span>
-<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>r3 <span class="op">=</span> did_block(bal[(bal[<span class="st">'state'</span>]<span class="op">==</span><span class="dv">1</span>) <span class="op">|</span> (bal[<span class="st">'pa2'</span>]<span class="op">==</span><span class="dv">1</span>)],</span>
-<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>               <span class="st">'NJ and PA2 region (Easton)'</span>)</span>
-<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(pd.DataFrame([r1, r2, r3]).to_string(index<span class="op">=</span><span class="va">False</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> did_block(subset, label):</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    nj_ <span class="op">=</span> subset[subset[<span class="st">'state'</span>] <span class="op">==</span> <span class="dv">1</span>]</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    pa_ <span class="op">=</span> subset[subset[<span class="st">'state'</span>] <span class="op">==</span> <span class="dv">0</span>]</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    diff_b <span class="op">=</span> nj_[<span class="st">'fte1'</span>].mean() <span class="op">-</span> pa_[<span class="st">'fte1'</span>].mean()</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    diff_a <span class="op">=</span> nj_[<span class="st">'fte2'</span>].mean() <span class="op">-</span> pa_[<span class="st">'fte2'</span>].mean()</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    did    <span class="op">=</span> diff_a <span class="op">-</span> diff_b</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    tb <span class="op">=</span> ttest_ind(nj_[<span class="st">'fte1'</span>].dropna(), pa_[<span class="st">'fte1'</span>].dropna()).statistic</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    ta <span class="op">=</span> ttest_ind(nj_[<span class="st">'fte2'</span>].dropna(), pa_[<span class="st">'fte2'</span>].dropna()).statistic</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    <span class="co"># SE of DiD via OLS on ΔFTE ~ NJ-dummy</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    nj_ind <span class="op">=</span> (subset[<span class="st">'state'</span>] <span class="op">==</span> <span class="dv">1</span>).astype(<span class="bu">float</span>).values</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    b, se, _ <span class="op">=</span> ols(subset[<span class="st">'delta_fte'</span>].values, nj_ind)</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    se_did <span class="op">=</span> se[<span class="dv">1</span>]</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> {</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>        <span class="st">'Sample'</span>: label,</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>        <span class="st">'NJ−PA Before (t)'</span>: <span class="ss">f"</span><span class="sc">{</span>diff_b<span class="sc">:.2f}</span><span class="ss"> (</span><span class="sc">{</span>tb<span class="sc">:.2f}</span><span class="ss">)"</span>,</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>        <span class="st">'NJ−PA After (t)'</span>:  <span class="ss">f"</span><span class="sc">{</span>diff_a<span class="sc">:.2f}</span><span class="ss"> (</span><span class="sc">{</span>ta<span class="sc">:.2f}</span><span class="ss">)"</span>,</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>        <span class="st">'DiD (SE)'</span>:          <span class="ss">f"</span><span class="sc">{</span>did<span class="sc">:.2f}</span><span class="ss"> (</span><span class="sc">{</span>se_did<span class="sc">:.2f}</span><span class="ss">)"</span>,</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Row 1: full NJ + PA balanced sample</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>r1 <span class="op">=</span> did_block(bal, <span class="st">'NJ and PA (full sample)'</span>)</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Row 2: NJ + northeastern PA suburbs (PA1 region)</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>r2 <span class="op">=</span> did_block(bal[(bal[<span class="st">'state'</span>]<span class="op">==</span><span class="dv">1</span>) <span class="op">|</span> (bal[<span class="st">'pa1'</span>]<span class="op">==</span><span class="dv">1</span>)],</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>               <span class="st">'NJ and northeastern PA (PA1)'</span>)</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Row 3: NJ + Easton/Phillipsburg corridor (PA2 region)</span></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>r3 <span class="op">=</span> did_block(bal[(bal[<span class="st">'state'</span>]<span class="op">==</span><span class="dv">1</span>) <span class="op">|</span> (bal[<span class="st">'pa2'</span>]<span class="op">==</span><span class="dv">1</span>)],</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>               <span class="st">'NJ and PA2 region (Easton)'</span>)</span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>pd.DataFrame([r1, r2, r3])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
-<div class="cell-output cell-output-stdout">
-<pre><code>                      Sample NJ−PA Before (t) NJ−PA After (t)    DiD (SE)
-     NJ and PA (full sample)    -2.86 (-2.25)   -0.14 (-0.12) 2.72 (1.15)
-NJ and northeastern PA (PA1)    -4.26 (-2.48)     0.27 (0.17) 4.53 (1.52)
-  NJ and PA2 region (Easton)    -1.68 (-1.04)   -0.49 (-0.32) 1.19 (1.50)</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="3">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Sample</th>
+<th data-quarto-table-cell-role="th">NJ−PA Before (t)</th>
+<th data-quarto-table-cell-role="th">NJ−PA After (t)</th>
+<th data-quarto-table-cell-role="th">DiD (SE)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>NJ and PA (full sample)</td>
+<td>-2.86 (-2.25)</td>
+<td>-0.14 (-0.12)</td>
+<td>2.72 (1.15)</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>NJ and northeastern PA (PA1)</td>
+<td>-4.26 (-2.48)</td>
+<td>0.27 (0.17)</td>
+<td>4.53 (1.52)</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>NJ and PA2 region (Easton)</td>
+<td>-1.68 (-1.04)</td>
+<td>-0.49 (-0.32)</td>
+<td>1.19 (1.50)</td>
+</tr>
+</tbody>
+</table>
+
+</div>
 </div>
 </div>
 <p><strong>What the table shows:</strong> The DiD is positive (~2–3 FTE) in every row, meaning NJ employment rose relative to PA employment regardless of which PA comparison group we use. The pre-period NJ−PA gap is negative in all rows (NJ started below PA), while the post-period gap is much closer to zero — the hallmark of a positive treatment effect under parallel trends.</p>
@@ -345,30 +457,30 @@ NJ and northeastern PA (PA1)    -4.26 (-2.48)     0.27 (0.17) 4.53 (1.52)
 <p>Table 4 replaces the binary NJ/PA dummy with a continuous <strong>proportional gap</strong> variable that captures how much each NJ store <em>needed</em> to raise wages to comply with the new $5.05 minimum:</p>
 <p><span class="math display">\[\text{GAP}_i = \max\!\left(0,\ \frac{5.05 - \text{WAGE\_ST}_i}{\text{WAGE\_ST}_i}\right)\]</span></p>
 <p>Stores already paying ≥ $5.05 (or all PA stores) have GAP = 0. NJ stores with low starting wages have a larger gap and faced stronger pressure to adjust. If higher minimum wages reduce employment, we should observe <em>larger</em> employment declines in higher-gap stores.</p>
-<div id="239b1e39" class="cell" data-execution_count="4">
+<div id="9e5c2741" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>bal <span class="op">=</span> bal.copy()</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>bal[<span class="st">'gap'</span>] <span class="op">=</span> np.where(</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    bal[<span class="st">'state'</span>] <span class="op">==</span> <span class="dv">1</span>,</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    np.maximum(<span class="fl">0.0</span>, (<span class="fl">5.05</span> <span class="op">-</span> bal[<span class="st">'wage_st'</span>]) <span class="op">/</span> bal[<span class="st">'wage_st'</span>]),</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="fl">0.0</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>b_t4, se_t4, n_t4 <span class="op">=</span> ols(bal[<span class="st">'delta_fte'</span>].values, bal[<span class="st">'gap'</span>].values)</span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>coef_gap, se_gap <span class="op">=</span> b_t4[<span class="dv">1</span>], se_t4[<span class="dv">1</span>]</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>t_gap <span class="op">=</span> coef_gap <span class="op">/</span> se_gap</span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>p_gap <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> (<span class="dv">1</span> <span class="op">-</span> <span class="bu">__import__</span>(<span class="st">'scipy'</span>).stats.t.cdf(<span class="bu">abs</span>(t_gap), df<span class="op">=</span>n_t4<span class="op">-</span><span class="dv">2</span>))</span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Table 4, Column (i) — OLS: ΔFTE on proportional gap"</span>)</span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"  Intercept          : </span><span class="sc">{</span>b_t4[<span class="dv">0</span>]<span class="sc">:.2f}</span><span class="ss">  (SE </span><span class="sc">{</span>se_t4[<span class="dv">0</span>]<span class="sc">:.2f}</span><span class="ss">)"</span>)</span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"  Coefficient on GAP : </span><span class="sc">{</span>coef_gap<span class="sc">:.2f}</span><span class="ss">  (SE </span><span class="sc">{</span>se_gap<span class="sc">:.2f}</span><span class="ss">)"</span>)</span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"  t-statistic        : </span><span class="sc">{</span>t_gap<span class="sc">:.2f}</span><span class="ss">"</span>)</span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"  p-value            : </span><span class="sc">{</span>p_gap<span class="sc">:.3f}</span><span class="ss">"</span>)</span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"  N                  : </span><span class="sc">{</span>n_t4<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>()</span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Interpretation: a store at the median NJ gap (~0.10) gained an"</span>)</span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"  additional </span><span class="sc">{</span>coef_gap<span class="op">*</span><span class="fl">0.10</span><span class="sc">:.2f}</span><span class="ss"> FTE workers relative to an already-compliant store."</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>bal <span class="op">=</span> bal.copy()</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>bal[<span class="st">'gap'</span>] <span class="op">=</span> np.where(</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    bal[<span class="st">'state'</span>] <span class="op">==</span> <span class="dv">1</span>,</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    np.maximum(<span class="fl">0.0</span>, (<span class="fl">5.05</span> <span class="op">-</span> bal[<span class="st">'wage_st'</span>]) <span class="op">/</span> bal[<span class="st">'wage_st'</span>]),</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="fl">0.0</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>b_t4, se_t4, n_t4 <span class="op">=</span> ols(bal[<span class="st">'delta_fte'</span>].values, bal[<span class="st">'gap'</span>].values)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>coef_gap, se_gap <span class="op">=</span> b_t4[<span class="dv">1</span>], se_t4[<span class="dv">1</span>]</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>t_gap <span class="op">=</span> coef_gap <span class="op">/</span> se_gap</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>p_gap <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> (<span class="dv">1</span> <span class="op">-</span> <span class="bu">__import__</span>(<span class="st">'scipy'</span>).stats.t.cdf(<span class="bu">abs</span>(t_gap), df<span class="op">=</span>n_t4<span class="op">-</span><span class="dv">2</span>))</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Table 4, Column (i) — OLS: ΔFTE on proportional gap"</span>)</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"  Intercept          : </span><span class="sc">{</span>b_t4[<span class="dv">0</span>]<span class="sc">:.2f}</span><span class="ss">  (SE </span><span class="sc">{</span>se_t4[<span class="dv">0</span>]<span class="sc">:.2f}</span><span class="ss">)"</span>)</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"  Coefficient on GAP : </span><span class="sc">{</span>coef_gap<span class="sc">:.2f}</span><span class="ss">  (SE </span><span class="sc">{</span>se_gap<span class="sc">:.2f}</span><span class="ss">)"</span>)</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"  t-statistic        : </span><span class="sc">{</span>t_gap<span class="sc">:.2f}</span><span class="ss">"</span>)</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"  p-value            : </span><span class="sc">{</span>p_gap<span class="sc">:.3f}</span><span class="ss">"</span>)</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"  N                  : </span><span class="sc">{</span>n_t4<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>()</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Interpretation: a store at the median NJ gap (~0.10) gained an"</span>)</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"  additional </span><span class="sc">{</span>coef_gap<span class="op">*</span><span class="fl">0.10</span><span class="sc">:.2f}</span><span class="ss"> FTE workers relative to an already-compliant store."</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Table 4, Column (i) — OLS: ΔFTE on proportional gap
@@ -389,56 +501,56 @@ Interpretation: a store at the median NJ gap (~0.10) gained an
 <section id="something-additional-parallel-trends-visualization" class="level2">
 <h2 class="anchored" data-anchor-id="something-additional-parallel-trends-visualization">Something Additional — Parallel Trends Visualization</h2>
 <p>The DiD estimator produces a valid causal estimate only if the <strong>parallel trends assumption</strong> holds. The chart below visualizes this assumption and shows where the estimated causal effect comes from.</p>
-<div id="2d8c8539" class="cell" data-execution_count="5">
+<div id="673825d7" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>nj_b <span class="op">=</span> nj[<span class="st">'fte1'</span>].mean()</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>nj_a <span class="op">=</span> nj[<span class="st">'fte2'</span>].mean()</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>pa_b <span class="op">=</span> pa[<span class="st">'fte1'</span>].mean()</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>pa_a <span class="op">=</span> pa[<span class="st">'fte2'</span>].mean()</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Counterfactual: what NJ would have looked like if it followed PA's trend</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>pa_trend   <span class="op">=</span> pa_a <span class="op">-</span> pa_b</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>nj_counter <span class="op">=</span> nj_b <span class="op">+</span> pa_trend</span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>did_est    <span class="op">=</span> nj_a <span class="op">-</span> nj_counter</span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="fl">8.5</span>, <span class="fl">5.5</span>))</span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> [<span class="dv">0</span>, <span class="dv">1</span>]</span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>ax.plot(t, [nj_b, nj_a], <span class="st">'o-'</span>, color<span class="op">=</span><span class="st">'#3A86FF'</span>,</span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>        lw<span class="op">=</span><span class="fl">2.5</span>, ms<span class="op">=</span><span class="dv">9</span>, label<span class="op">=</span><span class="st">'New Jersey (actual)'</span>, zorder<span class="op">=</span><span class="dv">4</span>)</span>
-<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>ax.plot(t, [pa_b, pa_a], <span class="st">'s-'</span>, color<span class="op">=</span><span class="st">'#FF6B6B'</span>,</span>
-<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>        lw<span class="op">=</span><span class="fl">2.5</span>, ms<span class="op">=</span><span class="dv">9</span>, label<span class="op">=</span><span class="st">'Pennsylvania (actual)'</span>, zorder<span class="op">=</span><span class="dv">4</span>)</span>
-<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>ax.plot(t, [nj_b, nj_counter], <span class="st">'o--'</span>, color<span class="op">=</span><span class="st">'#3A86FF'</span>,</span>
-<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>        lw<span class="op">=</span><span class="fl">1.8</span>, ms<span class="op">=</span><span class="dv">9</span>, alpha<span class="op">=</span><span class="fl">0.40</span>,</span>
-<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>        label<span class="op">=</span><span class="st">'NJ counterfactual (PA</span><span class="ch">\'</span><span class="st">s trend applied to NJ)'</span>, zorder<span class="op">=</span><span class="dv">3</span>)</span>
-<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a><span class="co"># DiD bracket</span></span>
-<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>bracket_x <span class="op">=</span> <span class="fl">1.07</span></span>
-<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>ax.annotate(<span class="st">''</span>, xy<span class="op">=</span>(bracket_x, nj_a), xytext<span class="op">=</span>(bracket_x, nj_counter),</span>
-<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>            arrowprops<span class="op">=</span><span class="bu">dict</span>(arrowstyle<span class="op">=</span><span class="st">'&lt;-&gt;'</span>, color<span class="op">=</span><span class="st">'#2EC4B6'</span>, lw<span class="op">=</span><span class="fl">2.2</span>))</span>
-<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>ax.text(bracket_x <span class="op">+</span> <span class="fl">0.03</span>, (nj_a <span class="op">+</span> nj_counter) <span class="op">/</span> <span class="dv">2</span>,</span>
-<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>        <span class="ss">f'Causal effect</span><span class="ch">\n</span><span class="ss">(DiD) ≈ </span><span class="sc">{</span>did_est<span class="sc">:.2f}</span><span class="ss"> FTE'</span>,</span>
-<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>        va<span class="op">=</span><span class="st">'center'</span>, color<span class="op">=</span><span class="st">'#2EC4B6'</span>, fontsize<span class="op">=</span><span class="fl">10.5</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
-<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Policy event line</span></span>
-<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>ax.axvline(x<span class="op">=</span><span class="fl">0.5</span>, color<span class="op">=</span><span class="st">'gray'</span>, ls<span class="op">=</span><span class="st">':'</span>, lw<span class="op">=</span><span class="fl">1.2</span>, alpha<span class="op">=</span><span class="fl">0.7</span>)</span>
-<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a>ax.text(<span class="fl">0.52</span>, pa_b <span class="op">-</span> <span class="fl">0.6</span>,</span>
-<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a>        <span class="st">'NJ minimum wage</span><span class="ch">\n</span><span class="st">increased (Apr 1992)'</span>,</span>
-<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a>        color<span class="op">=</span><span class="st">'gray'</span>, fontsize<span class="op">=</span><span class="fl">8.5</span>, va<span class="op">=</span><span class="st">'top'</span>)</span>
-<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a>ax.set_xticks([<span class="dv">0</span>, <span class="dv">1</span>])</span>
-<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a>ax.set_xticklabels([<span class="st">'Before</span><span class="ch">\n</span><span class="st">(Feb–Mar 1992)'</span>, <span class="st">'After</span><span class="ch">\n</span><span class="st">(Nov–Dec 1992)'</span>], fontsize<span class="op">=</span><span class="dv">11</span>)</span>
-<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'Mean FTE Employment per Store'</span>, fontsize<span class="op">=</span><span class="dv">11</span>)</span>
-<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'Card &amp; Krueger (1994) — DiD Parallel-Trends Visualization</span><span class="ch">\n</span><span class="st">'</span></span>
-<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a>             <span class="st">'NJ vs. PA Fast-Food Employment'</span>,</span>
-<span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a>             fontsize<span class="op">=</span><span class="dv">12</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
-<span id="cb7-43"><a href="#cb7-43" aria-hidden="true" tabindex="-1"></a>ax.legend(fontsize<span class="op">=</span><span class="fl">9.5</span>, loc<span class="op">=</span><span class="st">'lower left'</span>)</span>
-<span id="cb7-44"><a href="#cb7-44" aria-hidden="true" tabindex="-1"></a>ax.set_xlim(<span class="op">-</span><span class="fl">0.18</span>, <span class="fl">1.55</span>)</span>
-<span id="cb7-45"><a href="#cb7-45" aria-hidden="true" tabindex="-1"></a>ax.grid(axis<span class="op">=</span><span class="st">'y'</span>, alpha<span class="op">=</span><span class="fl">0.30</span>)</span>
-<span id="cb7-46"><a href="#cb7-46" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb7-47"><a href="#cb7-47" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>nj_b <span class="op">=</span> nj[<span class="st">'fte1'</span>].mean()</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>nj_a <span class="op">=</span> nj[<span class="st">'fte2'</span>].mean()</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>pa_b <span class="op">=</span> pa[<span class="st">'fte1'</span>].mean()</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>pa_a <span class="op">=</span> pa[<span class="st">'fte2'</span>].mean()</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Counterfactual: what NJ would have looked like if it followed PA's trend</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>pa_trend   <span class="op">=</span> pa_a <span class="op">-</span> pa_b</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>nj_counter <span class="op">=</span> nj_b <span class="op">+</span> pa_trend</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>did_est    <span class="op">=</span> nj_a <span class="op">-</span> nj_counter</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="fl">8.5</span>, <span class="fl">5.5</span>))</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> [<span class="dv">0</span>, <span class="dv">1</span>]</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>ax.plot(t, [nj_b, nj_a], <span class="st">'o-'</span>, color<span class="op">=</span><span class="st">'#3A86FF'</span>,</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>        lw<span class="op">=</span><span class="fl">2.5</span>, ms<span class="op">=</span><span class="dv">9</span>, label<span class="op">=</span><span class="st">'New Jersey (actual)'</span>, zorder<span class="op">=</span><span class="dv">4</span>)</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>ax.plot(t, [pa_b, pa_a], <span class="st">'s-'</span>, color<span class="op">=</span><span class="st">'#FF6B6B'</span>,</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>        lw<span class="op">=</span><span class="fl">2.5</span>, ms<span class="op">=</span><span class="dv">9</span>, label<span class="op">=</span><span class="st">'Pennsylvania (actual)'</span>, zorder<span class="op">=</span><span class="dv">4</span>)</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>ax.plot(t, [nj_b, nj_counter], <span class="st">'o--'</span>, color<span class="op">=</span><span class="st">'#3A86FF'</span>,</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>        lw<span class="op">=</span><span class="fl">1.8</span>, ms<span class="op">=</span><span class="dv">9</span>, alpha<span class="op">=</span><span class="fl">0.40</span>,</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>        label<span class="op">=</span><span class="st">'NJ counterfactual (PA</span><span class="ch">\'</span><span class="st">s trend applied to NJ)'</span>, zorder<span class="op">=</span><span class="dv">3</span>)</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a><span class="co"># DiD bracket</span></span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>bracket_x <span class="op">=</span> <span class="fl">1.07</span></span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>ax.annotate(<span class="st">''</span>, xy<span class="op">=</span>(bracket_x, nj_a), xytext<span class="op">=</span>(bracket_x, nj_counter),</span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>            arrowprops<span class="op">=</span><span class="bu">dict</span>(arrowstyle<span class="op">=</span><span class="st">'&lt;-&gt;'</span>, color<span class="op">=</span><span class="st">'#2EC4B6'</span>, lw<span class="op">=</span><span class="fl">2.2</span>))</span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>ax.text(bracket_x <span class="op">+</span> <span class="fl">0.03</span>, (nj_a <span class="op">+</span> nj_counter) <span class="op">/</span> <span class="dv">2</span>,</span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>        <span class="ss">f'Causal effect</span><span class="ch">\n</span><span class="ss">(DiD) ≈ </span><span class="sc">{</span>did_est<span class="sc">:.2f}</span><span class="ss"> FTE'</span>,</span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>        va<span class="op">=</span><span class="st">'center'</span>, color<span class="op">=</span><span class="st">'#2EC4B6'</span>, fontsize<span class="op">=</span><span class="fl">10.5</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Policy event line</span></span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>ax.axvline(x<span class="op">=</span><span class="fl">0.5</span>, color<span class="op">=</span><span class="st">'gray'</span>, ls<span class="op">=</span><span class="st">':'</span>, lw<span class="op">=</span><span class="fl">1.2</span>, alpha<span class="op">=</span><span class="fl">0.7</span>)</span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>ax.text(<span class="fl">0.52</span>, pa_b <span class="op">-</span> <span class="fl">0.6</span>,</span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>        <span class="st">'NJ minimum wage</span><span class="ch">\n</span><span class="st">increased (Apr 1992)'</span>,</span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>        color<span class="op">=</span><span class="st">'gray'</span>, fontsize<span class="op">=</span><span class="fl">8.5</span>, va<span class="op">=</span><span class="st">'top'</span>)</span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>ax.set_xticks([<span class="dv">0</span>, <span class="dv">1</span>])</span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a>ax.set_xticklabels([<span class="st">'Before</span><span class="ch">\n</span><span class="st">(Feb–Mar 1992)'</span>, <span class="st">'After</span><span class="ch">\n</span><span class="st">(Nov–Dec 1992)'</span>], fontsize<span class="op">=</span><span class="dv">11</span>)</span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'Mean FTE Employment per Store'</span>, fontsize<span class="op">=</span><span class="dv">11</span>)</span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'Card &amp; Krueger (1994) — DiD Parallel-Trends Visualization</span><span class="ch">\n</span><span class="st">'</span></span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a>             <span class="st">'NJ vs. PA Fast-Food Employment'</span>,</span>
+<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a>             fontsize<span class="op">=</span><span class="dv">12</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
+<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a>ax.legend(fontsize<span class="op">=</span><span class="fl">9.5</span>, loc<span class="op">=</span><span class="st">'lower left'</span>)</span>
+<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a>ax.set_xlim(<span class="op">-</span><span class="fl">0.18</span>, <span class="fl">1.55</span>)</span>
+<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a>ax.grid(axis<span class="op">=</span><span class="st">'y'</span>, alpha<span class="op">=</span><span class="fl">0.30</span>)</span>
+<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>

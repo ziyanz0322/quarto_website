@@ -23,6 +23,7 @@ rng = np.random.default_rng(42)
 ## Introduction
 
 I run a personal website with a landing page where visitors can subscribe to my newsletter. The sign-up form is accompanied by a short line of text — a "call to action" (CTA) — designed to encourage visitors to subscribe. But does the exact wording of that line actually matter?
+Even small changes in wording can have measurable impacts on user behavior, which makes this a natural setting for statistical experimentation.
 
 To find out, I designed a simple experiment comparing two CTAs:
 
