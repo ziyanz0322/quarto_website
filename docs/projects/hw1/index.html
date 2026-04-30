@@ -2,15 +2,18 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.25">
+<meta name="generator" content="quarto-1.9.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Ziyan (Freya) Zheng">
-<meta name="dcterms.date" content="2026-04-13">
+<meta name="dcterms.date" content="2026-04-29">
 
 <title>A/B Testing a Call to Action – Ziyan (Freya) Zheng</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -69,15 +72,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="quarto:offset" content="../../">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-5b4ad623e5705c0698d39aec6f10cf02.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-158031087360bce0ff56dc785ce39e06.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -107,7 +109,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -146,8 +148,6 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
-    </a>
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Ziyan (Freya) Zheng</span>
     </a>
@@ -229,7 +229,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">April 13, 2026</p>
+      <p class="date">April 29, 2026</p>
     </div>
   </div>
   
@@ -243,7 +243,7 @@ window.Quarto = {
 
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<p>I run a personal website with a landing page where visitors can subscribe to my newsletter. The sign-up form is accompanied by a short line of text — a “call to action” (CTA) — designed to encourage visitors to subscribe. But does the exact wording of that line actually matter?</p>
+<p>I run a personal website with a landing page where visitors can subscribe to my newsletter. The sign-up form is accompanied by a short line of text — a “call to action” (CTA) — designed to encourage visitors to subscribe. But does the exact wording of that line actually matter? Even small changes in wording can have measurable impacts on user behavior, which makes this a natural setting for statistical experimentation.</p>
 <p>To find out, I designed a simple experiment comparing two CTAs:</p>
 <ul>
 <li><strong>CTA A:</strong> “Sign up for our newsletter here!”</li>
@@ -267,7 +267,7 @@ window.Quarto = {
 <p>In a real experiment we would not know the true values of <span class="math inline">\(\pi_A\)</span> and <span class="math inline">\(\pi_B\)</span> — that’s the whole point of running the test. But for this exercise we set them ourselves so that we can study how our estimator behaves when we know the truth.</p>
 <p>We suppose: <span class="math display">\[\pi_A = 0.22, \quad \pi_B = 0.18, \quad \theta = \pi_A - \pi_B = 0.04\]</span></p>
 <p>CTA A leads to a 4 percentage point higher sign-up rate. We simulate 1,000 visitors assigned to each group (2,000 total).</p>
-<div id="0554c2d4" class="cell" data-execution_count="2">
+<div id="ac2da14c" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>pi_A <span class="op">=</span> <span class="fl">0.22</span></span>
@@ -293,7 +293,7 @@ Estimated θ̂  = 0.0250</code></pre>
 <h2 class="anchored" data-anchor-id="the-law-of-large-numbers">The Law of Large Numbers</h2>
 <p>The <strong>Law of Large Numbers (LLN)</strong> states that as the sample size grows, the sample mean converges to the population mean. In our context, this means <span class="math inline">\(\hat\pi_A \to \pi_A\)</span> and <span class="math inline">\(\hat\pi_B \to \pi_B\)</span> as <span class="math inline">\(n \to \infty\)</span>, and therefore <span class="math inline">\(\hat\theta \to \theta\)</span>. The LLN is what gives us confidence that our estimator will be close to the truth when the sample is large enough.</p>
 <p>To demonstrate this, I compute the element-wise differences between the CTA A and CTA B draws to form a vector of 1,000 paired differences. The cumulative average of this vector — the running mean after 1 draw, 2 draws, …, 1,000 draws — traces how quickly the estimate settles toward the true value of 0.04.</p>
-<div id="3071e282" class="cell" data-execution_count="3">
+<div id="dde6cf2c" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>diffs <span class="op">=</span> data_A <span class="op">-</span> data_B</span>
@@ -323,7 +323,7 @@ Estimated θ̂  = 0.0250</code></pre>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="index_files/figure-html/cell-4-output-1.png" width="855" height="372" class="figure-img"></p>
+<p><img src="index_files/figure-html/cell-4-output-1.png" width="854" height="373" class="figure-img"></p>
 </figure>
 </div>
 </div>
@@ -335,7 +335,7 @@ Estimated θ̂  = 0.0250</code></pre>
 <h2 class="anchored" data-anchor-id="bootstrap-standard-errors">Bootstrap Standard Errors</h2>
 <p>Knowing that <span class="math inline">\(\hat\theta\)</span> is close to <span class="math inline">\(\theta\)</span> is only half the story. We also need to communicate our <em>uncertainty</em> — how much could <span class="math inline">\(\hat\theta\)</span> plausibly vary from one experiment to the next? This is where <strong>standard errors</strong> and <strong>confidence intervals</strong> come in.</p>
 <p><strong>The bootstrap</strong> is a resampling technique that estimates variability without relying on a closed-form formula. The logic is simple: treat your observed data as a stand-in for the population, and simulate the act of re-running the experiment by drawing new samples (with replacement) from the data you already have. Each resample produces a new estimate <span class="math inline">\(\hat\theta^*\)</span>, and the standard deviation of many such estimates approximates the standard error of <span class="math inline">\(\hat\theta\)</span>.</p>
-<div id="e956d8b2" class="cell" data-execution_count="4">
+<div id="647f59f2" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>B <span class="op">=</span> <span class="dv">1000</span></span>
@@ -379,7 +379,7 @@ Analytical        0.01825
 <p>The <strong>Central Limit Theorem (CLT)</strong> tells us that regardless of the shape of the underlying distribution, the sampling distribution of the sample mean becomes approximately Normal as the sample size grows. Since <span class="math inline">\(\hat\theta = \bar{X}_A - \bar{X}_B\)</span> is a difference of sample means, the CLT applies here too: for large enough <span class="math inline">\(n\)</span>, the distribution of <span class="math inline">\(\hat\theta\)</span> is approximately <span class="math inline">\(N(\theta, \text{SE}^2)\)</span>.</p>
 <p>Our individual observations are Bernoulli — a decidedly non-Normal distribution with only two possible values. Yet with enough data, the estimator based on those outcomes should look Normal. Let’s see this in action.</p>
 <p>For each of four sample sizes <span class="math inline">\(n \in \{25, 50, 100, 500\}\)</span>, I simulate 1,000 experiments and compute <span class="math inline">\(\hat\theta\)</span> in each. The four resulting histograms show how the sampling distribution evolves with <span class="math inline">\(n\)</span>.</p>
-<div id="4e1c2623" class="cell" data-execution_count="5">
+<div id="6adfea31" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>sample_sizes <span class="op">=</span> [<span class="dv">25</span>, <span class="dv">50</span>, <span class="dv">100</span>, <span class="dv">500</span>]</span>
@@ -415,7 +415,7 @@ Analytical        0.01825
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="index_files/figure-html/cell-6-output-1.png" width="949" height="661" class="figure-img"></p>
+<p><img src="index_files/figure-html/cell-6-output-1.png" width="950" height="660" class="figure-img"></p>
 </figure>
 </div>
 </div>
@@ -436,7 +436,7 @@ Analytical        0.01825
 </ol>
 <p><strong>A note on “t-test” terminology:</strong> This procedure is often called a two-sample t-test. The classical t-distribution arises when data are drawn from a Normal population and the variance must be estimated — the ratio then follows an <em>exact</em> t-distribution. In our setting the data are Bernoulli, so there is no exact t-distribution result. What justifies the z-test here is the <strong>Normal approximation to the binomial</strong>: by the CLT, the sample proportion <span class="math inline">\(\hat\pi\)</span> from a Bernoulli population converges to a Normal distribution as <span class="math inline">\(n \to \infty\)</span>, and so does the difference <span class="math inline">\(\hat\theta\)</span>.</p>
 <p>There is a subtlety worth noting: we plug in <span class="math inline">\(\hat\pi_A\)</span> and <span class="math inline">\(\hat\pi_B\)</span> — estimated, not true — when computing the SE. In small samples, this additional estimation uncertainty means the test statistic is not quite standard Normal, and a t-distribution with finite degrees of freedom would be more appropriate. In large samples (<span class="math inline">\(n \gtrsim 30\)</span> per group, and certainly at <span class="math inline">\(n = 1000\)</span>), the t-distribution converges to the standard Normal, so the distinction disappears in practice. The key takeaway: the z-test is valid here because the Normal approximation to the binomial holds for large samples, not because we know the true variance.</p>
-<div id="a90ae0b5" class="cell" data-execution_count="6">
+<div id="bdfb3f40" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>z_stat <span class="op">=</span> theta_hat <span class="op">/</span> se_analytical</span>
@@ -472,7 +472,7 @@ p-value           = 0.1708</code></pre>
 <li><span class="math inline">\(\beta_0 + \beta_1 = E[Y_i \mid D_i = 1]\)</span> — the mean of the A group, estimating <span class="math inline">\(\pi_A\)</span></li>
 <li>Therefore <span class="math inline">\(\beta_1 = \pi_A - \pi_B = \theta\)</span>, and the OLS estimate <span class="math inline">\(\hat\beta_1\)</span> is numerically identical to <span class="math inline">\(\hat\theta = \bar{X}_A - \bar{X}_B\)</span></li>
 </ol>
-<div id="be6cd3cd" class="cell" data-execution_count="7">
+<div id="5aeade57" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>Y <span class="op">=</span> np.concatenate([data_A, data_B])</span>
@@ -524,7 +524,7 @@ Two-sample reference: θ̂ = 0.0250,  SE = 0.0183,  z = 1.370,  p = 0.1708</code
 <p>A natural way to standardize <span class="math inline">\(\hat\theta\)</span> is Cohen’s <span class="math inline">\(h\)</span> for proportions:</p>
 <p><span class="math display">\[h = 2\arcsin(\sqrt{\hat\pi_A}) - 2\arcsin(\sqrt{\hat\pi_B})\]</span></p>
 <p>The arcsine transformation stabilizes variance across different baseline rates, making <span class="math inline">\(h\)</span> comparable across experiments with different baseline conversion rates.</p>
-<div id="2f76b1ed" class="cell" data-execution_count="8">
+<div id="27bcbc24" class="cell" data-execution_count="8">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>h <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> np.arcsin(np.sqrt(pi_hat_A)) <span class="op">-</span> <span class="dv">2</span> <span class="op">*</span> np.arcsin(np.sqrt(pi_hat_B))</span>
@@ -542,7 +542,7 @@ Interpretation: small effect (Cohen's benchmarks: 0.2 / 0.5 / 0.8)</code></pre>
 <h3 class="anchored" data-anchor-id="minimum-detectable-effect-mde">Minimum Detectable Effect (MDE)</h3>
 <p>Before running an experiment, a product team must decide: <em>what is the smallest effect we actually care about detecting?</em> This is the <strong>Minimum Detectable Effect (MDE)</strong>. Given a chosen MDE, desired power <span class="math inline">\(1-\beta\)</span>, and significance level <span class="math inline">\(\alpha\)</span>, the required sample size per group is:</p>
 <p><span class="math display">\[n = \frac{(z_{1-\alpha/2} + z_{1-\beta})^2 \cdot [\hat\pi_A(1-\hat\pi_A) + \hat\pi_B(1-\hat\pi_B)]}{\text{MDE}^2}\]</span></p>
-<div id="05d76455" class="cell" data-execution_count="9">
+<div id="729dbee6" class="cell" data-execution_count="9">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>alpha <span class="op">=</span> <span class="fl">0.05</span></span>
@@ -583,7 +583,7 @@ Interpretation: small effect (Cohen's benchmarks: 0.2 / 0.5 / 0.8)</code></pre>
 <p>This practice is known as <strong>peeking</strong>, and it is a serious problem in classical frequentist testing.</p>
 <p>A single test at <span class="math inline">\(\alpha = 0.05\)</span> has a 5% false positive rate: it will incorrectly reject a true null hypothesis 5% of the time. But each additional peek gives another opportunity for a spurious significant result. Across 10 peeks on accumulating data, the overall probability of at least one false rejection is much higher than 5% — even when there is truly no difference.</p>
 <p>To quantify this, I simulate 10,000 experiments in a world where <strong>the null is true</strong>: <span class="math inline">\(\pi_A = \pi_B = 0.20\)</span>, so <span class="math inline">\(\theta = 0\)</span>. In each experiment, I peek at 10 equally spaced checkpoints and record whether <em>any</em> peek yields <span class="math inline">\(p &lt; 0.05\)</span>.</p>
-<div id="5dade48f" class="cell" data-execution_count="10">
+<div id="68d6d070" class="cell" data-execution_count="10">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>pi_null <span class="op">=</span> <span class="fl">0.20</span></span>
